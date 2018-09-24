@@ -23,7 +23,7 @@
 </section>
 
 
-
+@include('dash_include.alertjs')
 @include('dash_include.script')
 </body>
 </html>

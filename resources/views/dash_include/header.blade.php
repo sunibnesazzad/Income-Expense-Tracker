@@ -51,6 +51,8 @@
     <link rel="stylesheet" type="text/css" href="{{asset('admin_dash_theme/css/table-style.css')}}" />
     <link rel="stylesheet" type="text/css" href="{{asset('admin_dash_theme/css/basictable.css')}}" />
     <script type="text/javascript" src="{{asset('admin_dash_theme/js/jquery.basictable.min.js')}}"></script>
+
+    <link rel="stylesheet" type="text/css" href="{{asset('//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css')}}">
 {{--<script type="text/javascript">
     $(document).ready(function() {
         $('#table').basictable();

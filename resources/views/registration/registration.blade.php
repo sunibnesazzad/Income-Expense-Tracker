@@ -4,15 +4,7 @@
 
 <head>
     <title>Income & Expense- Registration </title>
-    <script type="application/x-javascript">
-        addEventListener("load", function () {
-            setTimeout(hideURLbar, 0);
-        }, false);
 
-        function hideURLbar() {
-            window.scrollTo(0, 1);
-        }
-    </script>
     <!-- //Meta Tags -->
     <!-- Font-Awesome-CSS -->
     <link href="login/css/font-awesome.css" rel="stylesheet">
@@ -24,6 +16,16 @@
     <link href="//fonts.googleapis.com/css?family=Montserrat:300,400,500,600" rel="stylesheet">
     <!--//fonts-->
     <link rel="stylesheet" type="text/css" href="{{asset('//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css')}}">
+
+    <script type="application/x-javascript">
+        addEventListener("load", function () {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+    </script>
 </head>
 
 <body>
@@ -73,7 +75,7 @@
 </div>
 <!--// copyright -->
 <!--//background-->
-@include('dashInclude.alertjs')
+@include('dash_include.alertjs')
 </body>
 
 </html>
