@@ -751,7 +751,7 @@ readers do not read off random characters that represent icons */
 .fa-cog:before {
   content: "\f013"; }
 
-.fa-cogs:before {
+.fa-user:before {
   content: "\f085"; }
 
 .fa-columns:before {

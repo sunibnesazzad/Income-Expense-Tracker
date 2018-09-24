@@ -31,7 +31,13 @@ Route::group(array('middleware' => 'auth'), function() {
 
     Route::get('/showdetail','DetailController@show')->name("showDetail");
     //for pdf view
-    Route::get('/pdfview','DetailController@pdfview')->name('pdfview');
+    Route::get('/pdfview','DetailController@pdf')->name('pdfview');
+    //showing Profile view
+    Route::get('/dash/{id}','ProfileController@show')->name('dash');
+    //showing Edit profile page
+    Route::get('/edit_profile','ProfileController@update')->name('editProfile');
+    //editing profile
+    Route::post('/edit/{id}','ProfileController@edit');
 
 
 });

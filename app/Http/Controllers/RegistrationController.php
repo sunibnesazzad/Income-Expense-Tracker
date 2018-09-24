@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Balance;
+use Image;
+use App\Profile;
 
 class RegistrationController extends Controller
 {
@@ -42,7 +44,7 @@ class RegistrationController extends Controller
         $balanc->balance=0.0;
         $balanc->save();
 
-       /* //creating profile part
+        //creating profile part
         $profile = new Profile;
         $profile->user_id = $user->id;
 
@@ -56,7 +58,7 @@ class RegistrationController extends Controller
             $profile->image=$filename;
         }
 
-        $profile->save();*/
+        $profile->save();
 
         $notification = [
             'message' => 'Registration is successful.!',

@@ -9,12 +9,14 @@ use App\Detail;
 use Auth;
 use Illuminate\Support\Facades\DB;
 use PDF;
+use App;
 
 class DetailController extends Controller
 {
     //showing detail page
     public function create(){
-        return view('detail.detail');
+        $user = Auth::user();
+        return view('detail.add',compact('user'))->with('title','Add Details');
     }
 
     public function store(Request $request){
@@ -65,32 +67,67 @@ class DetailController extends Controller
     }
 
     public function show(){
-
+        $user = Auth::user();
         $details = DB::table('details')->where('user_id', Auth::user()->id)->get();
-
-        return view('detail.showDetail',compact('details'));
+        /*return $details;*/
+        return view('detail.index',compact('details','user'))->with('title','All Details');
     }
 
     public function pdfview(Request $request)
     {
         set_time_limit(3000);
         $details = DB::table('details')->where('user_id', Auth::user()->id)->get();
-        view()->share('details',$details);
+        $pdf = \App::make('dompdf.wrapper');
+        $pdf->loadView('detail.showDetail', $details);
+        return $pdf->stream();
 
-        if($request->has('show')) {
-            // pass view file
-            $pdf = PDF::loadView('detail.showDetail');
-            // show pdf
-            return $pdf->stream('detail.showDetail.pdf');
-        }
-        if($request->has('download')) {
-            // pass view file
-            $pdf = PDF::loadView('detail.showDetail');
-            // show pdf
-            return $pdf->download('detail.showDetail.pdf');
-        }
-        return redirect('/detail');
 
+    }
+
+    public function pdf(){
+        $pdf = \App::make('dompdf.wrapper');
+        $pdf->loadHTML($this->convert_detail_data_to_html());
+        return $pdf->stream();
+    }
+    public function showdata(){
+        $details = DB::table('details')->where('user_id', Auth::user()->id)->get();
+        return $details;
+    }
+
+    public function convert_detail_data_to_html(){
+        $user = Auth::user();
+        $details = $this->showdata();
+        $output = '
+     <h3 align="center">'.$user->name.' Income & Expense History</h3>
+     <table width="100%" style="border-collapse: collapse; border: 0px;">
+      <tr>
+    <th style="border: 1px solid; padding:12px;" width="12.5%">Account</th>
+    <th style="border: 1px solid; padding:12px;" width="12.5%">Date</th>
+    <th style="border: 1px solid; padding:12px;" width="12.5%">Description</th>
+    <th style="border: 1px solid; padding:12px;" width="12.5%">Category</th>
+    <th style="border: 1px solid; padding:12px;" width="12.5%">Income Money IN</th>
+    <th style="border: 1px solid; padding:12px;" width="12.5%">Expense Money Out</th>
+    <th style="border: 1px solid; padding:12px;" width="12.5%">Debit/Credit</th>
+    <th style="border: 1px solid; padding:12px;" width="12.5%">Overall Balance</th>
+   </tr>
+     ';
+        foreach($details as $detail)
+        {
+            $output .= '
+      <tr>
+       <td style="border: 1px solid; padding:12px;">'.$detail->account.'</td>
+       <td style="border: 1px solid; padding:12px;">'.$detail->date.'</td>
+       <td style="border: 1px solid; padding:12px;">'.$detail->description.'</td>
+       <td style="border: 1px solid; padding:12px;">'.$detail->category.'</td>
+       <td style="border: 1px solid; padding:12px;">'.$detail->income.'</td>
+        <td style="border: 1px solid; padding:12px;">'.$detail->expense.'</td>
+       <td style="border: 1px solid; padding:12px;">'.$detail->debitorcredit.'</td>
+       <td style="border: 1px solid; padding:12px;">'.$detail->totalbalance.'</td>
+      </tr>
+      ';
+        }
+        $output .= '</table>';
+        return $output;
     }
 
 }

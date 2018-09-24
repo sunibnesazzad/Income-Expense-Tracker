@@ -6,7 +6,7 @@
     </div>
     <div class="row">
         <div class="col-md-6">
-            <a class="btn btn-primary" href="{{ route('pdfview',['show'=>'pdf']) }}">Show In PDF</a>
+            <a class="btn btn-primary" href="{{ route('pdfview') }}">Show In PDF</a>
         </div>
         {{--<div>
             <a class="btn btn-primary" href="{{ route('pdfview',['download'=>'pdf']) }}">Download PDF</a>
@@ -32,10 +32,17 @@
             </thead>
             <tbody>
                 @foreach($details as $detail)
-                    @include('detail.detailTable')
+                    <tr>
+                        <td><strong>{!! $detail->account !!}</strong></td>
+                        <td><strong>{!! $detail->date !!}</strong></td>
+                        <td><strong>{!! $detail->description !!}</strong></td>
+                        <td><strong>{!! $detail->category !!}</strong></td>
+                        <td><strong>{!! $detail->income !!}</strong></td>
+                        <td><strong>{!! $detail->expense !!}</strong></td>
+                        <td><strong>{!! $detail->debitorcredit !!}</strong></td>
+                        <td><strong>{!! $detail->totalbalance !!}</strong></td>
+                    </tr>
                 @endforeach
-
-
             </tbody>
         </table>
 

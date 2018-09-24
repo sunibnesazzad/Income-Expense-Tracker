@@ -27,11 +27,9 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
-    // Here i am overriding this sendPasswordResetNotification for sending custom password reset email .
-    public function sendPasswordResetNotification($token)
-    {
-        // Your your own implementation.
-        $this->notify(new ResetPassword($token));
+
+    public function profile(){
+        return $this->hasOne(Profile::class);
     }
 
     public function balance(){
