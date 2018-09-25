@@ -19,7 +19,7 @@ Route::get('/', 'SessionController@create')->name('login');
 /*Route::get('/login', 'SessionController@create');*/
 Route::post('/log','SessionController@store');
 Route::get('/logout','SessionController@destroy')->name('logout');
-Route::get('/register','RegistrationController@create');
+Route::get('/register','RegistrationController@create')->name('register');
 Route::post('/register','RegistrationController@store');
 
 ///using route middleware

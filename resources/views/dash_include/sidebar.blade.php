@@ -1,7 +1,7 @@
 <nav class="main-menu">
     <ul>
         <li>
-            <a href="/">
+            <a href="{!! route('enterDetail') !!}">
                 <i class="fa fa-home nav_icon"></i>
                 <span class="nav-text">
 					Home

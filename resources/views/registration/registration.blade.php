@@ -71,7 +71,7 @@
 <!--// Main-Content-->
 <!-- copyright -->
 <div class="copyright-w3-agile">
-    <p class="agile-copyright">&copy; 2018 Income & Expense Tracker. All Rights Reserved | Design by <a href="" target="_blank"><strong><i>Sun Ibne Sazzad</i></strong></a></p>
+    <p class="agile-copyright">&copy; 2018 Income & Expense Tracker. All Rights Reserved | Developed by <a href="" target="_blank"><strong><i>Sun Ibne Sazzad</i></strong></a></p>
 </div>
 <!--// copyright -->
 <!--//background-->

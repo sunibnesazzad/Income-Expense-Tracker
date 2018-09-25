@@ -47,7 +47,7 @@
         <div class="remember-section-wthree">
             <ul>
                 <li>
-                    <p class="text-center" style="color: white">Don't have  account ?  <a href="/register"><strong><i>Register Now</i></strong></a></p>
+                    <p class="text-center" style="color: white">Don't have  account ?  <a href="{!! route('register') !!}"><strong><i>Register Now</i></strong></a></p>
                 </li>
                 {{--<li> <a href="/password/reset">Forgot password?</a> </li>--}}
             </ul>
@@ -61,7 +61,7 @@
 <!--// Main-Content-->
 <!-- copyright -->
 <div class="copyright-w3-agile">
-    <p class="agile-copyright">&copy; 2018 Income & Expense Tracker. All Rights Reserved | Design by <a href="" target="_blank"><strong><i>Sun Ibne Sazzad</i></strong></a></p>
+    <p class="agile-copyright">&copy; 2018 Income & Expense Tracker. All Rights Reserved | Developed by <a href="" target="_blank"><strong><i>Sun Ibne Sazzad</i></strong></a></p>
 </div>
 <!--// copyright -->
 <!--//background-->
